@@ -1,117 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>3×3 Image Grid</title>
-  <style>
-    :root {
-      --bg: #0a0f1c;
-      --panel: #111726;
-      --ink: #e6edf3;
-      --dim: #9aa7b4;
-      --line: #2b3347;
-    }
+ 
 
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100svh;
-      background: radial-gradient(1200px 800px at 10% -10%, #141b2e 0%, var(--bg) 60%);
-      color: var(--ink);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-    }
-
-    .wrap {
-      width: min(1200px, 95vw);
-    }
-
-    header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: clamp(18px, 2.4vw, 28px);
-      font-weight: 600;
-      letter-spacing: 0.2px;
-    }
-    header p { margin: 0; color: var(--dim); font-size: 0.95rem; }
-
-    /* 3x3 grid, stays square-ish and responsive */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    }
-
-    .cell {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      background: var(--panel);
-      outline: 1px solid rgba(255,255,255,0.04);
-      aspect-ratio: 1 / 1; /* make every cell square */
-      display: grid;
-      place-items: center;
-      isolation: isolate;
-    }
-
-    .cell img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform .35s ease;
-    }
-
-    .cell:hover img { transform: scale(1.03); }
-
-    /* Optional filename overlay on hover */
-    .label {
-      position: absolute;
-      left: 8px;
-      bottom: 8px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(10, 15, 28, 0.6);
-      color: #dbe4ee;
-      font-size: 12px;
-      backdrop-filter: blur(6px);
-      opacity: 0;
-      transform: translateY(4px);
-      transition: opacity .25s ease, transform .25s ease;
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .cell:hover .label {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Small screens: keep 3 columns but shrink nicely; fall back to 2 if super narrow */
-    @media (max-width: 520px) {
-      .grid { grid-template-columns: repeat(2, 1fr); }
-    }
-  </style>
-</head>
-<body>
-  <main class="wrap">
-    <header>
-      <h1>3×3 Image Grid</h1>
-      <p>Drop your six files next to this HTML as <code>cb-1.png</code> … <code>cb-6.png</code>.</p>
-    </header>
 
     <section class="grid" aria-label="Image grid, up to nine items">
       <!-- Row 1 -->
@@ -147,9 +35,8 @@
       <figure class="cell" aria-hidden="true"></figure>
       <figure class="cell" aria-hidden="true"></figure>
     </section>
-  </main>
-</body>
-</html>
+
+ 
 
 ## Recursive Fugue: A Preface
 
