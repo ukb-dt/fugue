@@ -52,7 +52,7 @@ Staged entrances reveal:
 - **Ritual mechanics**: why civilization, religion, and even OCD provide relief
 - **The final meta-pentad**: discrete epochs → ritual framing → strategic soundness → splice of creation → Zarathustra's reading and writing
 
-Each entrance deepens the platform without breaking its austere logic. The work builds not by accumulation but by resonance — each new layer harmonizing with what came before, each metaphor earning its recursion.
+Each entrance deepens the platform without breaking its austere logic. The work builds not by accumulation but by [resonance](https://www.gutenberg.org/files/52263/52263-h/52263-h.htm) — each new layer harmonizing with what came before, each metaphor earning its recursion.
 
 **Ukubona**: splicing meaning. This is both method and outcome — witnessing what survives, writing it back into form, setting the next adversarial baseline.
 
@@ -988,4 +988,6 @@ Marx admires the manifesto's epic fugue, Nietzsche haunts its genealogy, Wilde q
 
 *"Write with blood, and you will learn that blood is spirit."* — And spirit? It recurs. Always.
 
- 
+> *This little work is a great declaration of war; and with regard to the cross-examining of idols, this time it is not the idols of the age but eternal idols which are here struck with a hammer as with a tuning fork,—there are certainly no idols which are older, more convinced, and more inflated. Neither are there any more hollow. This does not alter the fact that they are believed in more than any others, besides they are never called idols,—at least, not the most exalted among their number.*
+> -- [Twilight of Idols](https://www.gutenberg.org/files/52263/52263-h/52263-h.htm)
+
