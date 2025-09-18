@@ -1,40 +1,40 @@
  
 
 
-    <section class="grid" aria-label="Image grid, up to nine items">
-      <!-- Row 1 -->
-      <figure class="cell">
-        <img src="cb-1.png" alt="cb-1" loading="lazy" />
-        <figcaption class="label">cb-1.png</figcaption>
-      </figure>
-      <figure class="cell">
-        <img src="cb-2.png" alt="cb-2" loading="lazy" />
-        <figcaption class="label">cb-2.png</figcaption>
-      </figure>
-      <figure class="cell">
-        <img src="cb-3.png" alt="cb-3" loading="lazy" />
-        <figcaption class="label">cb-3.png</figcaption>
-      </figure>
+<section class="grid" aria-label="Image grid, up to nine items">
+<!-- Row 1 -->
+<figure class="cell">
+    <img src="cb-1.png" alt="cb-1" loading="lazy" />
+    <figcaption class="label">cb-1.png</figcaption>
+</figure>
+<figure class="cell">
+    <img src="cb-2.png" alt="cb-2" loading="lazy" />
+    <figcaption class="label">cb-2.png</figcaption>
+</figure>
+<figure class="cell">
+    <img src="cb-3.png" alt="cb-3" loading="lazy" />
+    <figcaption class="label">cb-3.png</figcaption>
+</figure>
 
-      <!-- Row 2 -->
-      <figure class="cell">
-        <img src="cb-4.png" alt="cb-4" loading="lazy" />
-        <figcaption class="label">cb-4.png</figcaption>
-      </figure>
-      <figure class="cell">
-        <img src="cb-5.png" alt="cb-5" loading="lazy" />
-        <figcaption class="label">cb-5.png</figcaption>
-      </figure>
-      <figure class="cell">
-        <img src="cb-6.png" alt="cb-6" loading="lazy" />
-        <figcaption class="label">cb-6.png</figcaption>
-      </figure>
+<!-- Row 2 -->
+<figure class="cell">
+    <img src="cb-4.png" alt="cb-4" loading="lazy" />
+    <figcaption class="label">cb-4.png</figcaption>
+</figure>
+<figure class="cell">
+    <img src="cb-5.png" alt="cb-5" loading="lazy" />
+    <figcaption class="label">cb-5.png</figcaption>
+</figure>
+<figure class="cell">
+    <img src="cb-6.png" alt="cb-6" loading="lazy" />
+    <figcaption class="label">cb-6.png</figcaption>
+</figure>
 
-      <!-- Row 3 (optional placeholders; replace when you have more images) -->
-      <figure class="cell" aria-hidden="true"></figure>
-      <figure class="cell" aria-hidden="true"></figure>
-      <figure class="cell" aria-hidden="true"></figure>
-    </section>
+<!-- Row 3 (optional placeholders; replace when you have more images) -->
+<figure class="cell" aria-hidden="true"></figure>
+<figure class="cell" aria-hidden="true"></figure>
+<figure class="cell" aria-hidden="true"></figure>
+</section>
 
  
 
