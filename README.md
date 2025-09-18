@@ -89,22 +89,6 @@ nietzsche and oscar wilde would concur: music is both ontology (in itself), but 
 > I wasted time, and now doth time waste me;*  
 > — [Richard II](https://www.gutenberg.org/files/1512/1512-h/1512-h.htm)
 
-<p align="center">
-  <img src="cb-1.jpeg" alt="cb-1" width="30%">
-  <img src="cb-2.jpeg" alt="cb-2" width="30%">
-</p>
-
-<p align="center">
-  <img src="cb-3.jpeg" alt="cb-3" width="30%">
-  <img src="cb-4.jpeg" alt="cb-4" width="30%">
-</p>
-
-<p align="center">
-  <img src="cb-5.jpeg" alt="cb-5" width="30%">
-  <img src="cb-6.jpeg" alt="cb-6" width="30%">
-</p>
-
----
 
 ## Recursive Fugue: A Preface
 
