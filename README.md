@@ -5,8 +5,8 @@
 > To check time broke in a disordered string;  
 > But for the concord of my state and time  
 > Had not an ear to hear my true time broke.  
-> I wasted time, and now doth time waste me;*
--- [Richard II](https://www.gutenberg.org/files/1512/1512-h/1512-h.htm)
+> I wasted time, and now doth time waste me;*        
+> -- [Richard II](https://www.gutenberg.org/files/1512/1512-h/1512-h.htm)
 
 <p align="center">
   <img src="cb-1.jpeg" alt="cb-1" width="30%">
