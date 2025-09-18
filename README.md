@@ -1,3 +1,5 @@
+> *Shakespeare is the happy huntingground of all minds that have lost their balance*
+> -- [Haines](https://www.gutenberg.org/files/4300/4300-h/4300-h.htm)
 
 # 📜 The Dual Document
 
