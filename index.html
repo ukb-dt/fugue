@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursive Fugue — Meta-Pentad Platform</title>
+    <style>
+        :root {
+            --bg: #0a0f1c;
+            --panel: #111726;
+            --ink: #e6edf3;
+            --dim: #9aa7b4;
+            --line: #2b3347;
+            --accent: #7ff0d9;
+            --halo: rgba(127,240,217,.12);
+            --tropism: #ff9f43;
+            --blood: #dc2626;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--ink);
+            overflow-x: hidden;
+        }
+        
+        .main-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .platform {
+            position: relative;
+            width: min(800px, 90vw);
+            height: min(600px, 70vh);
+            background: radial-gradient(circle, rgba(17,23,38,0.95) 0%, rgba(10,15,28,0.9) 100%);
+            border-radius: 16px;
+            border: 1px solid var(--line);
+            overflow: hidden;
+        }
+        
+        .title {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(14px, 2vw, 18px);
+            font-weight: 700;
+            color: var(--ink);
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .subtitle {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(10px, 1.5vw, 12px);
+            color: var(--dim);
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .clock-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(400px, 60vw);
+            height: min(400px, 60vw);
+            border: 2px dashed var(--line);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+        
+        .soma {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(120px, 15vw);
+            height: min(120px, 15vw);
+            background: linear-gradient(135deg, #f1c40f, #e67e22);
+            border: 3px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+            box-shadow: 0 0 20px var(--halo);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 5;
+        }
+        
+        .soma:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+        
+        .soma .symbol {
+            font-size: clamp(16px, 3vw, 24px);
+            margin-bottom: 4px;
+        }
+        
+        .soma .desc {
+            font-size: clamp(8px, 1.2vw, 10px);
+            line-height: 1.1;
+        }
+        
+        .node {
+            position: absolute;
+            width: min(100px, 12vw);
+            height: min(60px, 8vw);
+            background: linear-gradient(135deg, var(--panel), #1a2332);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: clamp(9px, 1.3vw, 11px);
+            font-weight: 600;
+            color: var(--ink);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .node:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--halo);
+        }
+        
+        .node.active {
+            border-color: var(--tropism);
+            background: linear-gradient(135deg, #1a2332, var(--panel));
+        }
+        
+        .node .symbol {
+            font-size: clamp(12px, 2vw, 16px);
+            font-weight: bold;
+            margin-bottom: 4px;
+            color: var(--accent);
+        }
+        
+        .node .desc {
+            font-size: clamp(7px, 1vw, 9px);
+            color: var(--dim);
+            line-height: 1.1;
+        }
+        
+        .node-12 {
+            top: min(80px, 12%);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .node-9 {
+            left: min(100px, 12%);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .node-6 {
+            bottom: min(80px, 12%);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .node-3 {
+            right: min(120px, 15%);
+            top: 50%;
+            transform: translateY(-50%);
+            width: min(90px, 11vw);
+            height: min(50px, 6vw);
+            background: linear-gradient(135deg, var(--panel), #1a2332);
+            border-color: #546a9a;
+        }
+        
+        .node-3 .symbol {
+            color: #8ab4ff;
+        }
+        
+        .detail-panel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10,15,28,0.98);
+            padding: 40px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 20;
+            overflow-y: auto;
+        }
+        
+        .detail-panel.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .detail-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .detail-title {
+            font-size: clamp(18px, 3vw, 24px);
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        
+        .detail-subtitle {
+            font-size: clamp(12px, 2vw, 14px);
+            color: var(--tropism);
+            margin-bottom: 20px;
+        }
+        
+        .detail-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .detail-section {
+            margin-bottom: 25px;
+        }
+        
+        .detail-section h3 {
+            color: var(--accent);
+            font-size: clamp(14px, 2.2vw, 16px);
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 5px;
+        }
+        
+        .detail-section p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: clamp(11px, 1.8vw, 13px);
+        }
+        
+        .quote {
+            font-style: italic;
+            color: var(--tropism);
+            border-left: 3px solid var(--blood);
+            padding-left: 15px;
+            margin: 20px 0;
+        }
+        
+        .mapping {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .mapping-title {
+            color: var(--tropism);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .mapping-item {
+            margin: 8px 0;
+            font-size: clamp(10px, 1.6vw, 12px);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            color: var(--dim);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s ease;
+        }
+        
+        .close-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        
+        .admission-rule {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(10px, 1.5vw, 12px);
+            color: var(--dim);
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="platform">
+            <div class="title">Recursive Fugue</div>
+            <div class="subtitle">Meta-Pentad Platform — Click nodes for staged entrances</div>
+            
+            <div class="clock-circle"></div>
+            
+            <div class="soma" data-target="center">
+                <div class="symbol">ΔS</div>
+                <div class="desc">Splice<br>Cantabile<br>Survival</div>
+            </div>
+            
+            <div class="node node-6" data-target="theta">
+                <div class="symbol">θ</div>
+                <div class="desc">Epochal Disc<br>Tension<br>Discrete</div>
+            </div>
+            
+            <div class="node node-9" data-target="sigma">
+                <div class="symbol">Σ</div>
+                <div class="desc">Ritual Framing<br>Release<br>Sense</div>
+            </div>
+            
+            <div class="node node-12" data-target="h">
+                <div class="symbol">h(t)</div>
+                <div class="desc">Soundness<br>Suspense<br>Strategic</div>
+            </div>
+            
+            <div class="node node-3" data-target="theta-prime">
+                <div class="symbol">θ'</div>
+                <div class="desc">Reading & Writing<br>Da Capo<br>🩸</div>
+            </div>
+            
+            <div class="admission-rule">
+                6, 9, 12, center, 3 — if it don't fit, tog must acquit
+            </div>
+            
+            <!-- Detail Panels -->
+            <div class="detail-panel" id="theta-panel">
+                <button class="close-btn" onclick="closePanel()">Close</button>
+                <div class="detail-header">
+                    <div class="detail-title">θ — Epochal Disc</div>
+                    <div class="detail-subtitle">Discrete • Tension • Adversarial Baseline</div>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-section">
+                        <h3>Genealogy Across Epochs</h3>
+                        <p>The epochal disc spins through five evolutionary stages, each mapped to directional growth tropisms:</p>
+                        <div class="mapping">
+                            <div class="mapping-title">Evolutionary Pentad</div>
+                            <div class="mapping-item">• Preplant → Chemotropism (downward to gradients)</div>
+                            <div class="mapping-item">• Botanical → Heliotropism (sideward to light)</div>
+                            <div class="mapping-item">• Animal → Gravitropism (upward against gravity)</div>
+                            <div class="mapping-item">• Enterprise → Somatotropism (body-directed signaling)</div>
+                            <div class="mapping-item">• System → Mnemonotropism (memory-directed recursion)</div>
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        <h3>Substrate as Adversarial Baseline</h3>
+                        <p>The adversarial substratum is never senseless—it is sense doing its job. Organisms read gradients, orient, survive. Nihilism fails when it mistakes raw adversarial tension for meaninglessness, instead of recognizing it as the soil of sense itself.</p>
+                        <p>Every melody emerges as a unique θ vector from this substrate—the harmonic series as physics, each tune a different contour of adversarial tension over time.</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>Discrete Time, Phylogenetic Memory</h3>
+                        <p>The disc operates like vinyl grooves—it can spin forward (evolution, progress) or backward (regression, entropy). Each epoch is discrete yet connected, allowing for skips, scratches, and remixes across evolutionary time.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="detail-panel" id="sigma-panel">
+                <button class="close-btn" onclick="closePanel()">Close</button>
+                <div class="detail-header">
+                    <div class="detail-title">Σ — Ritual Framing</div>
+                    <div class="detail-subtitle">Dependencies • Release • Covariance</div>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-section">
+                        <h3>Sense & Sensibility</h3>
+                        <p>At 9 o'clock, we encounter the pivot between raw sense (afferents registering gradients) and refined sensibility (posterior interpretation splicing inputs into meaning). This is where ritual provides relief from adversarial tension.</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>Genealogical Split</h3>
+                        <p>The Σ register splits along two genealogical axes:</p>
+                        <div class="mapping">
+                            <div class="mapping-title">Diagonal vs Off-Diagonal</div>
+                            <div class="mapping-item">• <strong>Diagonal (Übermensch)</strong>: Self-overcoming, internal transcendence</div>
+                            <div class="mapping-item">• <strong>Off-Diagonal (United Workers)</strong>: Solidarity, collective dependencies</div>
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        <h3>Rituals Give Relief</h3>
+                        <p>Civilization, religion, and even OCD operate as ritual framings—off-diagonal dependencies that influence the diagonal of identity:</p>
+                        <p>• <strong>Mozart to unborn children</strong>: ritual migrating into medical prescription</p>
+                        <p>• <strong>Woodstock 1969</strong>: greatest Dionysian ritual, off-diagonal explosion bending individual transformation</p>
+                        <p>• <strong>Compulsions</strong>: micro-rituals managing overwhelming adversarial substrate</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="detail-panel" id="h-panel">
+                <button class="close-btn" onclick="closePanel()">Close</button>
+                <div class="detail-header">
+                    <div class="detail-title">h(t) — Soundness</div>
+                    <div class="detail-subtitle">Strategic • Suspense • Arena of Collisions</div>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-section">
+                        <h3>To Be Sound</h3>
+                        <p>Soundness is never conspiratorial, paranoid, or nihilistic—but musical. To be sound means to keep time, to survive in tempo. This is both literal (sonic vibration, harmonic coherence) and metaphysical (survival as rhythm).</p>
+                        <div class="quote">
+                            "To be sound = to keep time, to survive in tempo."
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        <h3>The Fog of War</h3>
+                        <p>Vision operates in the domain of suspense—the arena where strategies may collapse on bad intel. Unlike smell and taste (which anchor persistence through direct chemistry), vision dramatizes illusion, collision, the theatrical uncertainty of battle.</p>
+                        <p>The fog of war shows why vision equals suspense: it's never pure perception, always dramatized uncertainty.</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>Musical Grammar</h3>
+                        <p>In the organist's pentad, h(t) maps to chords—harmonic collisions, suspensions, the arena of dissonance that must resolve into cantabile.</p>
+                        <div class="mapping">
+                            <div class="mapping-title">Organist's Pentad</div>
+                            <div class="mapping-item">θ → Melody (adversarial, untouchable)</div>
+                            <div class="mapping-item">Σ → Bass (transactional dependencies)</div>
+                            <div class="mapping-item">h(t) → Chords (harmonic collisions)</div>
+                            <div class="mapping-item">ΔS → Rhythm (temporal ledger)</div>
+                            <div class="mapping-item">θ' → Fugue (recursive return)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="detail-panel" id="center-panel">
+                <button class="close-btn" onclick="closePanel()">Close</button>
+                <div class="detail-header">
+                    <div class="detail-title">ΔS — Splice of Creation</div>
+                    <div class="detail-subtitle">Cantabile • Survival • Law of Creation</div>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-section">
+                        <h3>Law of Creation / Created</h3>
+                        <p>Every creator—god, scientist, entrepreneur, artist—eventually loses control of what they've made. The pentad ensures this recursion: tension declares parameters, but by the time we reach cantabile, the created have inherited responsibility.</p>
+                        <div class="quote">
+                            "Creators lose control; the created inherit responsibility."
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        <h3>Epicurus: Failed Metaphysics, Successful Practice</h3>
+                        <p>Epicurus thought meaning could be secured by banishing fear, grounding everything in atoms and void. Metaphysically, he failed to splice a robust scaffold for the adversarial substratum. Yet in practice, Epicurean communities made meaning anyway—gardens, friendship, ataraxia.</p>
+                        <p>Proof that practice can outpace metaphysics: meaning can be lived before it is written.</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>Sensory Persistence</h3>
+                        <p>Smell and taste operate at 100% ontological-epistemological overlap. They anchor persistence through direct molecular binding—there is no illusion, no fog. What we smell/taste is materially present.</p>
+                        <p>This is why these senses anchor the deepest biological memory, the survival ledger written in chemistry.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="detail-panel" id="theta-prime-panel">
+                <button class="close-btn" onclick="closePanel()">Close</button>
+                <div class="detail-header">
+                    <div class="detail-title">θ' — Zarathustra's Reading & Writing 🩸</div>
+                    <div class="detail-subtitle">Da Capo • Recursion • Survivor's Scripture</div>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-section">
+                        <h3>Write with Blood</h3>
+                        <div class="quote">
+                            "Of all that is written I love only what a man has written with his blood. Write with blood, and you will learn that blood is spirit."
+                        </div>
+                        <p>Survivor's writing is never neutral ink—it's ontology etched as scar, mnemonotropism where posterior sensibility loops back into memory, setting the next adversarial baseline.</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>Sound as Coherence Bridge</h3>
+                        <p>Sound operates as the bridge between ontology and epistemology. Unlike vision (illusion-prone) or smell/taste (chemistry-bound), sound achieves coherence where what is and what we know sing in temporal unison.</p>
+                        <p>This makes music the most reliable instantiation of the meta-pentad—rhythm as survival, harmony as coherence, recursion as da capo return.</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>Ukubona: Splicing Meaning</h3>
+                        <p>From the Zulu "to see/witness"—not just observation but the active cutting across afferents and splicing them into coherent meaning gradients. This is both method and outcome: witnessing what survives, writing it back into form.</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>The Final Recursion</h3>
+                        <p>At 3 o'clock, sensibility completes its circuit—the created write the score they must now play, splicing outcomes into meaning, stewarding the commons, setting the next adversarial baseline. The wheel turns: da capo, but never mere repetition.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const nodes = document.querySelectorAll('[data-target]');
+        const panels = document.querySelectorAll('.detail-panel');
+        
+        nodes.forEach(node => {
+            node.addEventListener('click', () => {
+                const targetId = node.getAttribute('data-target') + '-panel';
+                const targetPanel = document.getElementById(targetId);
+                
+                if (targetPanel) {
+                    // Close all panels first
+                    panels.forEach(panel => {
+                        panel.classList.remove('show');
+                    });
+                    
+                    // Remove active state from all nodes
+                    nodes.forEach(n => n.classList.remove('active'));
+                    
+                    // Show target panel and activate node
+                    targetPanel.classList.add('show');
+                    node.classList.add('active');
+                }
+            });
+        });
+        
+        function closePanel() {
+            panels.forEach(panel => {
+                panel.classList.remove('show');
+            });
+            nodes.forEach(node => {
+                node.classList.remove('active');
+            });
+        }
+        
+        // Close panel on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closePanel();
+            }
+        });
+    </script>
+</body>
+</html>
