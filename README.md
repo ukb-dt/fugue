@@ -1,15 +1,18 @@
  
 
 <p align="center">
-  <img src="cb-1.png" alt="cb-1" width="30%">
-  <img src="cb-2.png" alt="cb-2" width="30%">
-  <img src="cb-3.png" alt="cb-3" width="30%">
+  <img src="cb-1.jpeg" alt="cb-1" width="30%">
+  <img src="cb-2.jpeg" alt="cb-2" width="30%">
 </p>
 
 <p align="center">
-  <img src="cb-4.png" alt="cb-4" width="30%">
-  <img src="cb-5.png" alt="cb-5" width="30%">
-  <img src="cb-6.png" alt="cb-6" width="30%">
+  <img src="cb-3.jpeg" alt="cb-1" width="30%">
+  <img src="cb-4.jpeg" alt="cb-2" width="30%">
+</p>
+
+<p align="center">
+  <img src="cb-5.jpeg" alt="cb-5" width="30%">
+  <img src="cb-6.jpeg" alt="cb-6" width="30%">
 </p>
 
  
