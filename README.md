@@ -1,4 +1,12 @@
- 
+> *Ha, ha! keep time! How sour sweet music is  
+> When time is broke and no proportion kept!  
+> So is it in the music of men’s lives.  
+> And here have I the daintiness of ear  
+> To check time broke in a disordered string;  
+> But for the concord of my state and time  
+> Had not an ear to hear my true time broke.  
+> I wasted time, and now doth time waste me;*
+-- [Richard II](https://www.gutenberg.org/files/1512/1512-h/1512-h.htm)
 
 <p align="center">
   <img src="cb-1.jpeg" alt="cb-1" width="30%">
@@ -33,7 +41,7 @@ The minimalism is surgical. Every metaphor earns its place by surviving the test
 
 What follows is neither pure philosophy nor applied science, but something more akin to **survivor's writing** — ontology etched in blood, not neutral ink. We trace genealogies: how meaning emerges from the adversarial substratum, how creators lose control of their creations, how the created inherit responsibility for splicing sense into sensibility.
 
-The recursive fugue operates through **strategic soundness** — never conspiratorial, paranoid, or nihilistic, but musical. To be sound means to keep time, to survive in tempo. Every cycle completes: tension → release → suspense → cantabile → da capo.
+The recursive fugue operates through **strategic soundness** — never conspiratorial, paranoid, or nihilistic, but musical. To be sound means to [keep time](https://www.gutenberg.org/files/1512/1512-h/1512-h.htm), to survive in tempo. Every cycle completes: tension → release → suspense → cantabile → da capo.
 
 ## What to Expect
 
