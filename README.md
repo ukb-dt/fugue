@@ -23,7 +23,7 @@
 
 This work adopts a minimalist platform by design — not from poverty of imagination, but from precision of craft. Like Bach's cantata structure or a master organist's approach to improvisation, we begin with stark constraints: five positions on a clock face, mapped to neuronal architecture, expressed through the grammar of music.
 
-**6, 9, 12, center, 3** — if it don't fit, tog must acquit.
+**6, 9, 12, center, 3** — if it don't fit, you must acquit.
 
 Yet within this austere scaffold, we embed staged entrances for depth. Each element enters not as decoration but as structural necessity: the epochal disc revealing evolution's own pentad, the organist's mapping of melody to bass to chords to rhythm to fugue, the sensory overlay where smell anchors persistence while vision dramatizes the fog of war.
 
