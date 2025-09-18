@@ -5,29 +5,29 @@
 <!-- Row 1 -->
 <figure class="cell">
     <img src="cb-1.png" alt="cb-1" loading="lazy" />
-    <figcaption class="label">cb-1.png</figcaption>
+    <figcaption class="label">cb-1.jpeg</figcaption>
 </figure>
 <figure class="cell">
     <img src="cb-2.png" alt="cb-2" loading="lazy" />
-    <figcaption class="label">cb-2.png</figcaption>
+    <figcaption class="label">cb-1.jpeg</figcaption>
 </figure>
 <figure class="cell">
     <img src="cb-3.png" alt="cb-3" loading="lazy" />
-    <figcaption class="label">cb-3.png</figcaption>
+    <figcaption class="label">cb-1.jpeg</figcaption>
 </figure>
 
 <!-- Row 2 -->
 <figure class="cell">
     <img src="cb-4.png" alt="cb-4" loading="lazy" />
-    <figcaption class="label">cb-4.png</figcaption>
+    <figcaption class="label">cb-1.jpeg</figcaption>
 </figure>
 <figure class="cell">
     <img src="cb-5.png" alt="cb-5" loading="lazy" />
-    <figcaption class="label">cb-5.png</figcaption>
+    <figcaption class="label">cb-1.jpeg</figcaption>
 </figure>
 <figure class="cell">
     <img src="cb-6.png" alt="cb-6" loading="lazy" />
-    <figcaption class="label">cb-6.png</figcaption>
+    <figcaption class="label">cb-1.jpeg</figcaption>
 </figure>
 
 <!-- Row 3 (optional placeholders; replace when you have more images) -->
