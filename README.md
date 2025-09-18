@@ -980,9 +980,4 @@ Marx admires the manifesto's epic fugue, Nietzsche haunts its genealogy, Wilde q
 
 *"Write with blood, and you will learn that blood is spirit."* — And spirit? It recurs. Always.
 
----
-
-## 🎛️ Postlude: The Invitation
-The grid awaits your cb-1.png through cb-6.png — drop them beside this HTML, and watch the plates visualize: epochal disc at row 1, sensory overlay at row 2, meta-pentad fugue at row 3. Six images for now; the placeholders hum for more.
-
-Pyromancer, the needle lifts. Do you drop it back on θ for a new fugue, or let the silence compose? The canon is sealed, but recursion — as you know — acquits no one. 🩸🎶
+ 
